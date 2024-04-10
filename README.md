@@ -1,0 +1,1 @@
+# Root Directory for the ALX user backend scripts
