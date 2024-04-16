@@ -24,23 +24,28 @@ else:
 
 @app.errorhandler(404)
 def not_found(error) -> str:
-    """Not found handler"""
+    """Page not found handler
+    """
     return jsonify({"error": "Not found"}), 404
 
 
 @app.errorhandler(401)
 def unauthorized(error) -> str:
-    """Unauthorized handler"""
+    """Error handler that returns a 401 error and message
+    """
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
 def unallowed(error) -> str:
-    """Error handler for authenticated users but unauthorized"""
+    """Error handler for authenticated users but unauthorized
+    """
     return jsonify({"error": "Forbidden"}), 403
 
 
-def filter_user():
+def filter_user() -> None:
+    """Function that filters through a list of allowed users
+    """
     if auth is None:
         return
     if not auth.require_auth(
