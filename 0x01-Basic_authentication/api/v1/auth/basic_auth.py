@@ -67,39 +67,19 @@ class BasicAuth(Auth):
         credentials = decoded_base64_authorization_header.partition(':')
         return (credentials[0], credentials[-1])
 
-    def user_object_from_credentials(self,
-                                     user_email: str,
-                                     user_pwd: str) -> TypeVar('User'):
-        """Returns a user instance based on email and password
-        Args:
-            user_email  (str) - email
-            user_pwd (str) - password
-        Returns:
-            user_object
-        """
-        # Check if user_email or user_pwd is not a string or None
-        if not isinstance(user_email, str) or user_email is None:
+    def user_object_from_credentials(
+                self,
+                user_email: str,
+                user_pwd: str) -> TypeVar('User'):
+            """Retrieves a user based on the user's authentication.
+            """
+            if type(user_email) == str and type(user_pwd) == str:
+                try:
+                    users = User.search({'email': user_email})
+                except Exception:
+                    return None
+                if len(users) <= 0:
+                    return None
+                if users[0].is_valid_password(user_pwd):
+                    return users[0]
             return None
-        if not isinstance(user_pwd, str) or user_pwd is None:
-            return None
-
-        # Search for user in the database
-        users = User.search({"email": user_email})
-
-        # If user not found, return None
-        if not users:
-            return None
-
-        # If multiple users found, log a warning and return None
-        if len(users) > 1:
-            print("Warning: Multiple users found with the same email.")
-            return None
-
-        user = users[0]  # Get the first user from the list
-
-        # Check if provided password is valid
-        if not user.is_valid_password(user_pwd):
-            return None
-
-        # Return the user instance if authentication is successful
-        return user
