@@ -2,11 +2,11 @@
 """
 Module that creates a BasicAuth Class
 """
-
-
+import base64
+import logging
 from api.v1.auth.auth import Auth
 
-
+logging.basicConfig(filename='app.log', filemode='a')
 class BasicAuth(Auth):
     """The Basic Auth class BP
     """
@@ -28,3 +28,24 @@ class BasicAuth(Auth):
 
         # Extract and return the base64 part (the second part after splitting)
         return parts[1]
+
+    def decode_base64_authorization_header(self,
+                                           base64_authorization_header: str
+                                           ) -> str:
+        """Returns the decoded value of Base64 string
+        Args:
+            base64_authorization_header - Header
+        Returns
+            decoded value
+        """
+        if base64_authorization_header is None or \
+                not isinstance(base64_authorization_header, str):
+            return None
+        try:
+            decoded_value = base64.urlsafe_b64decode(
+                base64_authorization_header).decode('utf-8')
+
+        except (TypeError, ValueError) as e:
+            logging.warning(f"Erro decoding base64: {e}")
+            return None
+        return decoded_value
