@@ -51,3 +51,14 @@ class BasicAuth(Auth):
             logging.warning(f"Erro decoding base64: {e}")
             return None
         return decoded_value
+    
+    def extract_user_credentials(self, decoded_base64_authorization_header: str) -> (str, str):
+        """Returns a tuple of username and password from a decoded base64 value
+        """
+        if decoded_base64_authorization_header is None or \
+            not isinstance(decoded_base64_authorization_header, str):
+            return (None, None)
+        if decoded_base64_authorization_header.find(':') < 0:
+            return (None, None)
+        credentials = decoded_base64_authorization_header.partition(':')
+        return (credentials[0], credentials[-1])
