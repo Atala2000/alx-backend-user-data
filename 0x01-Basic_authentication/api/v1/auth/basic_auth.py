@@ -71,15 +71,15 @@ class BasicAuth(Auth):
                 self,
                 user_email: str,
                 user_pwd: str) -> TypeVar('User'):
-            """Retrieves a user based on the user's authentication.
-            """
-            if type(user_email) == str and type(user_pwd) == str:
-                try:
-                    users = User.search({'email': user_email})
-                except Exception:
-                    return None
-                if len(users) <= 0:
-                    return None
-                if users[0].is_valid_password(user_pwd):
-                    return users[0]
-            return None
+        """Retrieves a user based on the user's authentication.
+        """
+        if isinstance(user_email, str) and isinstance(user_pwd, str):
+            try:
+                users = User.search({'email': user_email})
+            except Exception:
+                return None
+            if len(users) <= 0:
+                return None
+            if users[0].is_valid_password(user_pwd):
+                return users[0]
+        return None
