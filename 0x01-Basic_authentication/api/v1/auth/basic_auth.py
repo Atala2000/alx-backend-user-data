@@ -7,6 +7,8 @@ import logging
 from api.v1.auth.auth import Auth
 
 logging.basicConfig(filename='app.log', filemode='a')
+
+
 class BasicAuth(Auth):
     """The Basic Auth class BP
     """
