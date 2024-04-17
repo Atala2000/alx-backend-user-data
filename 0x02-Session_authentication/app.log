@@ -1,0 +1,179 @@
+WARNING:root:Erro decoding base64: Incorrect padding
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.140.119:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [16/Apr/2024 18:49:56] "GET /api/v1/status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [16/Apr/2024 18:50:16] "[31m[1mGET /api/v1/users HTTP/1.1[0m" 401 -
+WARNING:root:Erro decoding base64: 'utf-8' codec can't decode byte 0xb5 in position 0: invalid start byte
+ERROR:app:Exception on /api/v1/users [GET]
+Traceback (most recent call last):
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/atala/.local/lib/python3.10/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 868, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 1243, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/home/atala/Coding/alx-backend-user-data/0x01-Basic_authentication/api/v1/app.py", line 58, in filter_user
+    if not auth.current_user(request):
+  File "/home/atala/Coding/alx-backend-user-data/0x01-Basic_authentication/api/v1/auth/basic_auth.py", line 95, in current_user
+    user = self.user_object_from_credentials(user_credent)
+TypeError: BasicAuth.user_object_from_credentials() missing 1 required positional argument: 'user_pwd'
+INFO:werkzeug:127.0.0.1 - - [16/Apr/2024 18:50:24] "[35m[1mGET /api/v1/users HTTP/1.1[0m" 500 -
+WARNING:root:Erro decoding base64: 'utf-8' codec can't decode byte 0xb5 in position 0: invalid start byte
+ERROR:app:Exception on /api/v1/users [GET]
+Traceback (most recent call last):
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/atala/.local/lib/python3.10/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 868, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 1243, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/home/atala/Coding/alx-backend-user-data/0x01-Basic_authentication/api/v1/app.py", line 58, in filter_user
+    if not auth.current_user(request):
+  File "/home/atala/Coding/alx-backend-user-data/0x01-Basic_authentication/api/v1/auth/basic_auth.py", line 95, in current_user
+    user = self.user_object_from_credentials(user_credent)
+TypeError: BasicAuth.user_object_from_credentials() missing 1 required positional argument: 'user_pwd'
+INFO:werkzeug:127.0.0.1 - - [16/Apr/2024 18:50:35] "[35m[1mGET /api/v1/users HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/v1/users [GET]
+Traceback (most recent call last):
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/atala/.local/lib/python3.10/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 868, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 1243, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/home/atala/Coding/alx-backend-user-data/0x01-Basic_authentication/api/v1/app.py", line 58, in filter_user
+    if not auth.current_user(request):
+  File "/home/atala/Coding/alx-backend-user-data/0x01-Basic_authentication/api/v1/auth/basic_auth.py", line 95, in current_user
+    user = self.user_object_from_credentials(user_credent)
+TypeError: BasicAuth.user_object_from_credentials() missing 1 required positional argument: 'user_pwd'
+INFO:werkzeug:127.0.0.1 - - [16/Apr/2024 18:51:38] "[35m[1mGET /api/v1/users HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.140.119:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:app:Exception on /api/v1/users [GET]
+Traceback (most recent call last):
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/atala/.local/lib/python3.10/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 868, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 1243, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/home/atala/Coding/alx-backend-user-data/0x01-Basic_authentication/api/v1/app.py", line 58, in filter_user
+    if not auth.current_user(request):
+  File "/home/atala/Coding/alx-backend-user-data/0x01-Basic_authentication/api/v1/auth/basic_auth.py", line 95, in current_user
+    user = self.user_object_from_credentials(user_credent)
+TypeError: BasicAuth.user_object_from_credentials() missing 1 required positional argument: 'user_pwd'
+INFO:werkzeug:127.0.0.1 - - [16/Apr/2024 18:51:48] "[35m[1mGET /api/v1/users HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.140.119:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [16/Apr/2024 18:52:59] "GET /api/v1/users HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.140.119:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2024 20:30:44] "GET /api/v1/status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2024 20:30:49] "[31m[1mGET /api/v1/users HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2024 20:30:57] "GET /api/v1/users HTTP/1.1" 200 -
+ERROR:app:Exception on /api/v1/users/me [GET]
+Traceback (most recent call last):
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/atala/.local/lib/python3.10/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/atala/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/atala/Coding/alx-backend-user-data/0x02-Session_authentication/api/v1/views/users.py", line 31, in view_one_user
+    return jsonify({User.get(user_id).to_json()})
+AttributeError: 'NoneType' object has no attribute 'to_json'
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2024 20:31:16] "[35m[1mGET /api/v1/users/me HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.140.119:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 714-834-463
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2024 20:31:52] "[35m[1mGET /api/v1/users/me HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/home/atala/Coding/alx-backend-user-data/0x02-Session_authentication/api/v1/views/users.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 714-834-463
+INFO:werkzeug: * Detected change in '/home/atala/Coding/alx-backend-user-data/0x02-Session_authentication/api/v1/views/users.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.140.119:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 714-834-463
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2024 20:33:09] "[35m[1mGET /api/v1/users/me HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/home/atala/Coding/alx-backend-user-data/0x02-Session_authentication/api/v1/views/users.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 714-834-463
+INFO:werkzeug: * Detected change in '/home/atala/Coding/alx-backend-user-data/0x02-Session_authentication/api/v1/views/users.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 714-834-463
+INFO:werkzeug: * Detected change in '/home/atala/Coding/alx-backend-user-data/0x02-Session_authentication/api/v1/views/users.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 714-834-463
+INFO:werkzeug: * Detected change in '/home/atala/Coding/alx-backend-user-data/0x02-Session_authentication/api/v1/views/users.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 714-834-463
+INFO:werkzeug: * Detected change in '/home/atala/Coding/alx-backend-user-data/0x02-Session_authentication/api/v1/views/users.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 714-834-463
+INFO:werkzeug: * Detected change in '/home/atala/Coding/alx-backend-user-data/0x02-Session_authentication/api/v1/views/users.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 714-834-463
+INFO:werkzeug: * Detected change in '/home/atala/Coding/alx-backend-user-data/0x02-Session_authentication/api/v1/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.140.119:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2024 20:38:55] "[33mGET /api/v1/users/me HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.140.119:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [17/Apr/2024 20:44:11] "GET /api/v1/users/me HTTP/1.1" 200 -
