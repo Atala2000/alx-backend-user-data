@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+Module that creates a route for session authentication
+"""
 from api.v1.views import app_views
 from flask import request, jsonify
 from models.user import User
