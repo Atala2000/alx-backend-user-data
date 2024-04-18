@@ -19,11 +19,11 @@ auth = None
 auth = None
 auth_type = os.getenv("AUTH_TYPE")
 
-if auth_type == 'auth':
+if auth_type == "auth":
     auth = Auth()
-elif auth_type == 'basic_auth':
+elif auth_type == "basic_auth":
     auth = BasicAuth()
-elif auth_type == 'session_auth':
+elif auth_type == "session_auth":
     auth = SessionAuth()
 
 
@@ -50,14 +50,19 @@ def filter_user() -> None:
     if auth is None:
         return
     if not auth.require_auth(
-        request.path, ["/api/v1/status/",
-                       "/api/v1/unauthorized/", "/api/v1/forbidden/",
-                       "/api/v1/auth_session/login/"
-                       ]
+        request.path,
+        [
+            "/api/v1/status/",
+            "/api/v1/unauthorized/",
+            "/api/v1/forbidden/",
+            "/api/v1/auth_session/login/",
+        ],
     ):
         return
-    if auth.authorization_header(request) is None and \
-            auth.session_cookie(request) is None:
+    if (
+        auth.authorization_header(request) is None
+        and auth.session_cookie(request) is None
+    ):
         abort(401)
     if not auth.current_user(request):
         abort(403)
