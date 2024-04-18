@@ -9,6 +9,8 @@ import os
 def session_authenticate():
     """
     Handles routes for session authentication
+    Return:
+        - User object JSON represented
     """
     user_email = request.form.get('email')
     user_password = request.form.get('password')
