@@ -61,7 +61,9 @@ class DB:
             return user
         except NoResultFound as e:
             # If no user is found, raise NoResultFound
-            raise NoResultFound("No user found matching the filter criteria.") from e
+            raise NoResultFound("""
+                                No user found matching the filter criteria.
+                                """) from e
         except InvalidRequestError as e:
             # If wrong query arguments are passed, raise InvalidRequestError
             raise InvalidRequestError("Wrong query arguments.") from e
