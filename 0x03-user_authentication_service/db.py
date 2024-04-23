@@ -2,6 +2,7 @@
 """DB module
 """
 from sqlalchemy import create_engine
+from sqlalchemy.exc import NoResultFound, InvalidRequestError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
@@ -49,3 +50,12 @@ class DB:
             self._session.rollback()
             user = None
         return user
+
+    def find_user_by(self, **kwargs):
+        """
+        Filters row by multiple arguments
+        """
+        try:
+            return self._session.query(User).filter_by(**kwargs).one()
+        except NoResultFound:
+            raise NoResultFound("No user found")
