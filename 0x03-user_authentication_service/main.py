@@ -1,30 +1,5 @@
 #!/usr/bin/env python3
-"""
-Main file
-"""
-from db import DB
-from user import User
-
-from sqlalchemy.exc import InvalidRequestError
-from sqlalchemy.orm.exc import NoResultFound
-
-
-my_db = DB()
-
-user = my_db.add_user("test@test.com", "PwdHashed")
-print(user.id)
-
-find_user = my_db.find_user_by(email="test@test.com")
-print(find_user.id)
-
-try:
-    find_user = my_db.find_user_by(email="test2@test.com")
-    print(find_user.id)
-except NoResultFound:
-    print("Not found")
-
-try:#!/usr/bin/env python3
-"""A simple end-to-end (E2E) integration test for `app.py`.
+"""A simple end-to-end test for `app.py`.
 """
 import requests
 
@@ -36,12 +11,11 @@ BASE_URL = "http://0.0.0.0:5000"
 
 
 def register_user(email: str, password: str) -> None:
-    """Tests registering a user.
-    """
+    """Tests registering a user."""
     url = "{}/users".format(BASE_URL)
     body = {
-        'email': email,
-        'password': password,
+        "email": email,
+        "password": password,
     }
     res = requests.post(url, data=body)
     assert res.status_code == 200
@@ -52,45 +26,41 @@ def register_user(email: str, password: str) -> None:
 
 
 def log_in_wrong_password(email: str, password: str) -> None:
-    """Tests logging in with a wrong password.
-    """
+    """Tests logging in with a wrong password."""
     url = "{}/sessions".format(BASE_URL)
     body = {
-        'email': email,
-        'password': password,
+        "email": email,
+        "password": password,
     }
     res = requests.post(url, data=body)
     assert res.status_code == 401
 
 
 def log_in(email: str, password: str) -> str:
-    """Tests logging in.
-    """
+    """Tests logging in."""
     url = "{}/sessions".format(BASE_URL)
     body = {
-        'email': email,
-        'password': password,
+        "email": email,
+        "password": password,
     }
     res = requests.post(url, data=body)
     assert res.status_code == 200
     assert res.json() == {"email": email, "message": "logged in"}
-    return res.cookies.get('session_id')
+    return res.cookies.get("session_id")
 
 
 def profile_unlogged() -> None:
-    """Tests retrieving profile information whilst logged out.
-    """
+    """Tests retrieving profile information"""
     url = "{}/profile".format(BASE_URL)
     res = requests.get(url)
     assert res.status_code == 403
 
 
 def profile_logged(session_id: str) -> None:
-    """Tests retrieving profile information whilst logged in.
-    """
+    """Tests retrieving profile"""
     url = "{}/profile".format(BASE_URL)
     req_cookies = {
-        'session_id': session_id,
+        "session_id": session_id,
     }
     res = requests.get(url, cookies=req_cookies)
     assert res.status_code == 200
@@ -98,11 +68,10 @@ def profile_logged(session_id: str) -> None:
 
 
 def log_out(session_id: str) -> None:
-    """Tests logging out of a session.
-    """
+    """Tests logging out of a session."""
     url = "{}/sessions".format(BASE_URL)
     req_cookies = {
-        'session_id': session_id,
+        "session_id": session_id,
     }
     res = requests.delete(url, cookies=req_cookies)
     assert res.status_code == 200
@@ -110,26 +79,24 @@ def log_out(session_id: str) -> None:
 
 
 def reset_password_token(email: str) -> str:
-    """Tests requesting a password reset.
-    """
+    """Tests requesting a password reset."""
     url = "{}/reset_password".format(BASE_URL)
-    body = {'email': email}
+    body = {"email": email}
     res = requests.post(url, data=body)
     assert res.status_code == 200
     assert "email" in res.json()
     assert res.json()["email"] == email
     assert "reset_token" in res.json()
-    return res.json().get('reset_token')
+    return res.json().get("reset_token")
 
 
 def update_password(email: str, reset_token: str, new_password: str) -> None:
-    """Tests updating a user's password.
-    """
+    """Tests updating a user's password."""
     url = "{}/reset_password".format(BASE_URL)
     body = {
-        'email': email,
-        'reset_token': reset_token,
-        'new_password': new_password,
+        "email": email,
+        "reset_token": reset_token,
+        "new_password": new_password,
     }
     res = requests.put(url, data=body)
     assert res.status_code == 200
@@ -146,7 +113,3 @@ if __name__ == "__main__":
     reset_token = reset_password_token(EMAIL)
     update_password(EMAIL, reset_token, NEW_PASSWD)
     log_in(EMAIL, NEW_PASSWD)
-    find_user = my_db.find_user_by(no_email="test@test.com")
-    print(find_user.id)
-except InvalidRequestError:
-    print("Invalid")        
